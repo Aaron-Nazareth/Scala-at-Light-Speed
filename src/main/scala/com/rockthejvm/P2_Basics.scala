@@ -33,7 +33,7 @@ object P2_Basics extends App {
     println(aCodeBlock)
 
   // define a function
-  // def function(argument:type): name = {}
+  // def functionName(argument:type): return type = {}
   def myFunction(x: Int, y: String): String = {
     y + "" + x
     }
