@@ -95,7 +95,7 @@ object P3_ObjectOrientation extends App {
 
   Automatically generates the following:
   - sensible equals and hash code
-  -serialisation
+  - serialisation
   - companion with apply
    */
 
