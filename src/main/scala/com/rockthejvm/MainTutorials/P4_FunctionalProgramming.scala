@@ -1,4 +1,4 @@
-package com.rockthejvm
+package com.rockthejvm.MainTutorials
 
 object P4_FunctionalProgramming extends App {
 
@@ -39,8 +39,8 @@ object P4_FunctionalProgramming extends App {
   stringConcatenator("I love", "Scala") // becomes "I love Scala"
 
   // arrow function shorthand
-  val doubler: Int => Int = (x: Int) => 2 * x  // Shorter arrow function
-  doubler(4)  // equates to 8
+  val doubler: Int => Int = (x: Int) => 2 * x // Shorter arrow function
+  doubler(4) // equates to 8
 
   /*
    above is equivalent to writing the much longer:
@@ -51,21 +51,21 @@ object P4_FunctionalProgramming extends App {
    */
 
   // higher-order functions: take functions as args/return functions as results
-  val aMappedList = List(1,2,3).map(x => x + 1) // HOF
-//  println(aMappedList)
-  val aFlatMappedList = List(1,2,3).flatMap(x => List(x, 2 * x))
-//  println(aFlatMappedList)
-  val aFilteredList = List(1,2,3,4,5).filter(x => x <= 3)
-//  println(aFilteredList)
-  val alternativeFilteredList = List(1,2,3,4,5).filter(_ <= 3)  // equivalent to above filtered list
+  val aMappedList = List(1, 2, 3).map(x => x + 1) // HOF
+  //  println(aMappedList)
+  val aFlatMappedList = List(1, 2, 3).flatMap(x => List(x, 2 * x))
+  //  println(aFlatMappedList)
+  val aFilteredList = List(1, 2, 3, 4, 5).filter(x => x <= 3)
+  //  println(aFilteredList)
+  val alternativeFilteredList = List(1, 2, 3, 4, 5).filter(_ <= 3) // equivalent to above filtered list
 
   // all pairs between the numbers 1, 2, 3 and the letters 'a', 'b', 'c'
-  val allPairs = List(1,2,3).flatMap(number => List('a', 'b', 'c').map(letter => s"$number-$letter"))
+  val allPairs = List(1, 2, 3).flatMap(number => List('a', 'b', 'c').map(letter => s"$number-$letter"))
   println(allPairs)
 
   // for comprehensions
   val alternativeAllPairs = for {
-    number <- List(1,2,3)
+    number <- List(1, 2, 3)
     letter <- List('a', 'b', 'c')
   } yield s"$number-$letter"
   // equivalent to map/flatMap chain above
@@ -74,29 +74,29 @@ object P4_FunctionalProgramming extends App {
   // ============== COLLECTIONS ================
 
   // lists
-  val aList = List(1,2,3,4,5)
+  val aList = List(1, 2, 3, 4, 5)
   val FirstElement = aList.head
   val rest = aList.tail
   val aPrependedList = 0 :: aList // :: is how you prepend lists - result in this case is List(0,1,2,3,4,5)
   val anExtendedList = 0 +: aList :+ 6 // results in List(0,1,2,3,4,5,6)
 
   // sequences
-  val aSequence: Seq[Int] = Seq(1,2,3) // Seq.apply(1,2,3)
+  val aSequence: Seq[Int] = Seq(1, 2, 3) // Seq.apply(1,2,3)
   // Seq mainly used to access an element at a given index
-  val accessedElement = aSequence(1)  // the element at index 1 is 2
+  val accessedElement = aSequence(1) // the element at index 1 is 2
 
   // vectors - fast sequence implementation
-  val aVector = Vector(1,2,3,4,5)
+  val aVector = Vector(1, 2, 3, 4, 5)
 
   // sets = no duplicates
-  val aSet = Set(1,2,3,4,1,2,3) // Set(1,2,3,4)
-  val setHas5 = aSet.contains(5)  // returns false
+  val aSet = Set(1, 2, 3, 4, 1, 2, 3) // Set(1,2,3,4)
+  val setHas5 = aSet.contains(5) // returns false
   val anAddedSet = aSet + 5 // Set(1,2,3,4,5) - order may vary as order not important in a set collection
-  val aRemovedSet = aSet - 3  // Set(1,2,4)
+  val aRemovedSet = aSet - 3 // Set(1,2,4)
 
   // ranges
   val aRange = 1 to 1000
-  val twoByTwo = aRange.map(x => 2 * x).toList  // List(2,4,6,8,...,2000)
+  val twoByTwo = aRange.map(x => 2 * x).toList // List(2,4,6,8,...,2000)
   // note - .toSet and .toSeq also exist
 
   // tuples = groups of values under the same value

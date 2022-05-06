@@ -1,4 +1,4 @@
-package com.rockthejvm
+package com.rockthejvm.MainTutorials
 
 object P2_Basics extends App {
   // defining a value
@@ -29,14 +29,14 @@ object P2_Basics extends App {
 
     // entire value of the code block is equal to the last expression
     aLocalValue + 3
-    }
-    println(aCodeBlock)
+  }
+  println(aCodeBlock)
 
   // define a function
   // def functionName(argument:type): return type = {}
   def myFunction(x: Int, y: String): String = {
     y + "" + x
-    }
+  }
 
   // recursive functions
   def factorial(n: Int): Int =

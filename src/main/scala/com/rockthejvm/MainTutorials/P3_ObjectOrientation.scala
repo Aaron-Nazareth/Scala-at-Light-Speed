@@ -1,20 +1,23 @@
-package com.rockthejvm
+package com.rockthejvm.MainTutorials
 
 object P3_ObjectOrientation extends App {
 
   // Java equivalent would be: public static void main(String[] args)
 
   // class and instance
-  class Animal {  // class
+  class Animal { // class
     // define fields
     val age: Int = 0
+
     // define methods
     def eat() = println("I'm eating")
   }
+
   val anAnimal = new Animal // instance
 
   // inheritance
   class Dog(val name: String) extends Animal // constructor definition
+
   val aDog = new Dog("Rory")
   // constructor arguments are not fields - need to put a val before the constructor argument
   println(aDog.name)
@@ -25,7 +28,8 @@ object P3_ObjectOrientation extends App {
 
   // abstract class
   abstract class WalkingAnimal {
-    val hasLegs = true  // by default this is public, but can be restricted adding protected or private
+    val hasLegs = true // by default this is public, but can be restricted adding protected or private
+
     def walk(): Unit
   }
 
@@ -48,7 +52,7 @@ object P3_ObjectOrientation extends App {
 
   val aCroc = new Crocodile
   aCroc.eat(aDog) // one notation
-  aCroc eat aDog  // another notation
+  aCroc eat aDog // another notation
   // infix notation = object method argument
   aCroc.?!("What if I could fly?")
 
@@ -72,9 +76,11 @@ object P3_ObjectOrientation extends App {
   */
 
   // singleton object
-  object MySingleton {  // the only instance of the MySingleton type
+  object MySingleton { // the only instance of the MySingleton type
     val mySpecialValue = 347372
+
     def mySpecialMethod(): Int = 3728
+
     def apply(x: Int): Int = x + 1
   }
 
@@ -88,7 +94,7 @@ object P3_ObjectOrientation extends App {
     val canLiveIndefinitely = false
   }
 
-  val animalsCanLiveForever = Animal.canLiveIndefinitely  // "static" fields/methods
+  val animalsCanLiveForever = Animal.canLiveIndefinitely // "static" fields/methods
 
   /*
   case classes = lightweight data structures with some boilerplate
@@ -100,6 +106,7 @@ object P3_ObjectOrientation extends App {
    */
 
   case class Person(name: String, age: Int)
+
   // may be constructed without keyword "new"
   val aaron = Person("Aaron", 24) // Same as Person.apply("Aaron", 24)
 
@@ -117,11 +124,12 @@ object P3_ObjectOrientation extends App {
   // generics
   abstract class MyList[T] {
     def head: T
+
     def tail: MyList[T]
   }
 
   // using a generic with a concrete type
-  val aList: List[Int] = List(1,2,3) // List.apply(1,2,3)
+  val aList: List[Int] = List(1, 2, 3) // List.apply(1,2,3)
   val first = aList.head
   val rest = aList.tail
   val aStringList = List("hello", "Scala")
@@ -136,7 +144,7 @@ object P3_ObjectOrientation extends App {
   1) Speeds up development tremendously in multithreaded/distributed environments
   2) Helps makes sense of code - "reasoning about"
    */
-  val reversedList = aList.reverse  // returns a new list
+  val reversedList = aList.reverse // returns a new list
 
   // 2. Scala is closest to OOP ideal - no values or methods fall outside a class/object
 

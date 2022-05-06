@@ -1,10 +1,10 @@
-package com.rockthejvm
+package com.rockthejvm.MainTutorials
 
 import scala.concurrent.Future
 import scala.util.{Failure, Success, Try}
 import scala.concurrent.ExecutionContext.Implicits.global
 
-object P6_Advanced extends App{
+object P6_Advanced extends App {
 
   /** =============== Lazy evaluation =============== */
   lazy val aLazyValue = "random"
@@ -19,6 +19,7 @@ object P6_Advanced extends App{
   /** ============= "pseudo-collections": Option type, Try type ============= */
 
   def methodWhichCanReturnNull(): String = "hello, Scala"
+
   /* This could be used, but we don't need it since we have the Option type
   if (methodWhichCanReturnNull() == null) {
     // defensive code against null
@@ -34,6 +35,7 @@ object P6_Advanced extends App{
   // map, flatMap, filter
 
   def methodWhichCanThrowException(): String = throw new RuntimeException()
+
   val aTry = Try(methodWhichCanThrowException())
   // a try = "collection" with either a value if the code went well, or an exception if the code threw one
 
@@ -44,8 +46,8 @@ object P6_Advanced extends App{
   // map, flatMap, filter
 
   /**
-   Evaluate something on another thread
-   (asynchronous programming)
+   * Evaluate something on another thread
+   * (asynchronous programming)
    */
 
   val aFuture = Future {
@@ -62,19 +64,20 @@ object P6_Advanced extends App{
   // Future, Try and Option types are known as "monads"
 
   /**
-   Implicits basics
+   * Implicits basics
    */
   // 1. Implicit arguments
   def aMethodWithImplicitArgs(implicit arg: Int) = arg + 1
+
   implicit val myImplicitInt = 46
-  println(aMethodWithImplicitArgs)  // aMethodWithImplicitArgs(myImplicitInt)
+  println(aMethodWithImplicitArgs) // aMethodWithImplicitArgs(myImplicitInt)
 
   // 2. Implicit conversions
   implicit class MyRichInteger(n: Int) {
     def isEven() = n % 2 == 0
   }
 
-  println(23.isEven())  // compiler essentially does: new MyRichInteger(23).isEven()
+  println(23.isEven()) // compiler essentially does: new MyRichInteger(23).isEven()
   // use this carefully
 
 }
